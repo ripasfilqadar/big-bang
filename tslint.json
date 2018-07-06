@@ -18,13 +18,12 @@
     "forin": true,
     "import-blacklist": [
       true,
-      "rxjs",
       "rxjs/Rx"
     ],
     "import-spacing": true,
     "indent": [
       true,
-      "spaces"
+      "space"
     ],
     "interface-over-type-literal": true,
     "label-position": true,
@@ -91,7 +90,7 @@
     "radix": true,
     "semicolon": [
       true,
-      "always"
+      "never"
     ],
     "triple-equals": [
       true,

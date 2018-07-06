@@ -1,0 +1,51 @@
+.image-card{
+  max-width: 100px;
+  position: relative;
+  float: left;
+  width: 100%;
+  margin: 10px;
+  height: 150px;
+  cursor: pointer;
+  border: 1px gray solid;
+}
+
+.image-card img {
+  max-width: 75px;
+}
+
+mat-card-title{
+  position: relative;
+  left: -30px;
+  min-width: 90px;
+  font-size: 11px !important;
+  text-align: center
+}
+.image-card__selected{
+  border: 2px #0e0ea7 solid;
+}
+
+.folder-icon{
+  cursor: pointer;
+  max-width: 600px;
+  text-align: center;
+  margin-left: 30px;
+}
+.content {
+  min-height: 100px;
+  max-width: 600px;
+  overflow-y: scroll;
+  overflow-x: visible;
+}
+
+.media-list {
+  min-height: 410px;
+  padding-top: 80px;
+
+}
+
+.toolbar__fixed{
+  position: fixed;
+  width: 600px;
+  z-index: 1;
+  background: white;
+}
