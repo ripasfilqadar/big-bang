@@ -1,0 +1,63 @@
+<div class="dialog-content-wrapper" style="min-width: 600px;">
+  <input type="file" style="display: none" (change)="onChange($event)" multiple #fileInput>
+  <div mat-dialog-title class="mat-accent-bg p-16 m-0" fxLayout="row" fxLayoutAlign="space-between center">
+    <span class="title dialog-title">Media</span>
+    <button aria-label="Close dialog" mat-icon-button (click)="onNoClick()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="content"
+    infiniteScroll
+    [infiniteScrollDistance]="5"
+    [scrollWindow]="false"
+    (scrolled)="onScroll()"
+  >
+    <div fxLayout="row" fxLayoutAlign="center start" *ngIf="!showMedia">
+      <div fxFlex *ngFor="let type of mediaTypes" (click)="onClickFolder(type.type)">
+        <div class="folder-icon">
+          <img src="/assets/shared/images/folder-icon.png" style="max-width: 100px;">
+          <div>
+            {{type.name}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="showMedia">
+        <div class="toolbar toolbar__fixed" fxlayout="row" fxLayoutAlign="space-between center">
+          <div *ngIf="dataMat.type === undefined">
+            <button mat-icon-button color="warn" (click)="backToFolder()">
+              <mat-icon>keyboard_backspace</mat-icon>
+            </button>
+          </div>
+          <div class="left" fxFlex="60" >
+            <wing-button-crud
+            [state] = "state()"
+            [buttonEdit] = "{ visible: 'false' }"
+            [buttonView] = "{ visible: 'false' }"
+            (clickAdd) = "onClickAdd()"
+            (clickDelete) = "onDeleteClick()"
+            >
+            </wing-button-crud>
+          </div>
+          <div class="right" fxLayout="row" fxLayoutAlign="end center" style="padding-right: 30px;">
+            <layout-search-bar (search)="updateFilter($event)" fxFlex></layout-search-bar>
+          </div>
+        </div>
+        <div class="media-list">
+          <mat-card class="image-card"
+          *ngFor="let media of datas; let i = index"
+          (click)="toggleSelect(media)"
+          [ngClass]="{'image-card__selected': isSelected(media)}">
+            <img mat-card-image [src]="thumbPath(media)" (error)="brokenImage">
+            <mat-card-header>
+              <mat-card-title>{{media.Title}}</mat-card-title>
+            </mat-card-header>
+          </mat-card>
+        </div>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="end center" style="padding: 23px;">
+    <button mat-raised-button color="primary" (click)="onOkClick()" >Selesai</button>
+  </div>
+</div>
+

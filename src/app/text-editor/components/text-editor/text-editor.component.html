@@ -1,0 +1,45 @@
+<p-editor [(ngModel)]="text" (ngModelChange)="textChange.emit($event)" [style]="{'height':'320px'}" (onInit)="initQuill($event)" placeholder="Masukan konten Post di sini..." #textEditor>
+  <p-header>
+    <span class=ql-formats>
+      <select class=ql-header>
+        <option value=1>Heading</option>
+        <option value=2>Subheading</option>
+        <option selected>Normal</option>
+      </select>
+      <select class=ql-font>
+        <option selected>Sans Serif</option>
+        <option value=serif>Serif</option>
+        <option value=monospace>Monospace</option>
+      </select>
+    </span>
+    <span class=ql-formats>
+      <button class=ql-bold aria-label=Bold></button>
+      <button class=ql-italic aria-label=Italic></button>
+      <button class=ql-underline aria-label=Underline></button>
+    </span>
+    <span class=ql-formats>
+      <select class=ql-color></select>
+      <select class=ql-background></select>
+    </span>
+    <span class=ql-formats>
+      <button class=ql-list value=ordered aria-label=Ordered List></button>
+      <button class=ql-list value=bullet aria-label=Unordered List></button>
+    <select class=ql-align>
+        <option selected></option>
+        <option value=center></option>
+        <option value=right></option>
+        <option value=justify></option>
+      </select>
+    </span>
+    <span class=ql-formats>
+      <button class=ql-link aria-label=Insert Link></button>
+      <button class=ql-code-block aria-label=Insert Code Block></button>
+    </span>
+    <span class=ql-formats>
+      <button class=ql-clean aria-label=Remove Styles></button>
+    </span>
+    <span class="ql-formats" >
+        <button class="btn" (click)="showMediaPopUp($event)"><i class="fa fa-file-image-o"></i></button>
+    </span>
+  </p-header>
+</p-editor>
